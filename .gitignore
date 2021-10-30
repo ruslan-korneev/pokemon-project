@@ -5,3 +5,5 @@ __pycache__
 *.log
 *.key
 *.flag
+*.conf
+postgres_data
