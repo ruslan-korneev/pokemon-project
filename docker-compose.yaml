@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+
+  web:
+    build: .
+    depends_on:
+      - db
+    volumes:
+      - .:/code
+    container_name: pokemon-web
+    ports:
+      - "8765:8000"
+    env_file: .env
+    command: python ./src/manage.py runserver 0.0.0.0:8000
+
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    container_name: pokemon-db
+    env_file: .env
+    ports:
+      - "5432"
+
+  prometheus:
+    image: prom/prometheus:v2.21.0
+    ports:
+      - 9000:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    container_name: pokemon-metrics
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:8.2.2
+    ports:
+      - 3060:3000
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    container_name: pokemon-statisctics
+
+  redis:
+    image: redis
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    container_name: pokemon-redis
+    ports:
+      - "6379"
+
+volumes:
+  postgres_data:
+  prometheus-data:
+  grafana-storage:
+  redis.conf:

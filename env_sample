@@ -1,0 +1,11 @@
+# POSTGRESQL
+POSTGRES_DB=postgresdb
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+
+# DJANGO
+SECRET_KEY=django-insecure-key
+ALLOWED_HOSTS=0.0.0.0,127.0.0.1,localhost
+
+# SENTRY
+SENTRY_DSN=
