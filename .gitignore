@@ -7,3 +7,4 @@ __pycache__
 *.flag
 *.conf
 postgres_data
+static
