@@ -31,6 +31,8 @@ services:
       - ./prometheus:/etc/prometheus
       - prometheus-data:/prometheus
     container_name: pokemon-metrics
+    env_file: 
+      - .env
     command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
 
   grafana:
