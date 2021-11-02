@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group
 
+from apps.profiles.admin import ProfileInline
+
 from .forms import  MasterChangeForm, MasterCreationForm
 from .models import Master
 
@@ -35,6 +37,7 @@ class MasterAdmin(UserAdmin):
     )
     ordering = ()
     filter_horizontal = ()
+    inlines = (ProfileInline,)
 
 
 admin.site.unregister(Group)

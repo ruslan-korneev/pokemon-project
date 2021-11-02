@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     # my apps
     'apps.metrics',
     'apps.masters',
+    'apps.profiles',
+    'apps.inventory',
+    'apps.loot',
 ]
 
 MIDDLEWARE = [
