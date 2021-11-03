@@ -8,3 +8,8 @@ cd pokemon-project
 cat env_sample > .env
 docker-compose up -d
 ```
+
+# Get pokemon to pokedex
+```
+docker exec -ti pokemon-web /bin/bash -c "src/manage.py parsepokemons"
+```

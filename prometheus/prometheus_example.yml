@@ -9,4 +9,4 @@ scrape_configs:
   - job_name: web
     metrics_path: /prometheus/metrics/
     static_configs:
-      - targets: ['5.188.118.173:8765']
+      - targets: ['yourhost:8765']
