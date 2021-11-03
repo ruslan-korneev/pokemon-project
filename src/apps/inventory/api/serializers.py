@@ -6,7 +6,7 @@ from apps.loot.api.serializers import PokeballInventorySerializer
 
 class InventorySerializer(serializers.ModelSerializer):
 
-    pokeballs = serializers.RelatedField(source='pokeballs.name')
+    pokeballs = PokeballInventorySerializer(many=True)
 
     class Meta:
         model = Inventory
