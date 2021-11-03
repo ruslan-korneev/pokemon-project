@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'apps.profiles',
     'apps.inventory',
     'apps.loot',
+    'apps.pokedex',
 ]
 
 MIDDLEWARE = [
